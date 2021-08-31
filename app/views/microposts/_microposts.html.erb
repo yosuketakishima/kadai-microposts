@@ -12,7 +12,12 @@
                     </div>
                     <div>
                         <% if current_user == micropost.user %>
-                            <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+                            <div class="d-flex flex-row">
+                            <div><%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %></div>
+                            <div><%= render 'favorites/favorite_button', micropost: micropost %></div>
+                            </div>
+                        <% else %>
+                            <%= render 'favorites/favorite_button', micropost: micropost %>
                         <% end %>
                     </div> 
                 </div>
