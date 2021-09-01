@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     @pagy, @likes = pagy(@user.likes)
     counts(@user)
   end
-
+  
   private 
 
   def user_params
