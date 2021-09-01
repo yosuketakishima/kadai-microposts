@@ -3,12 +3,10 @@ class UsersController < ApplicationController
   
   def index
     @pagy, @users = pagy(User.order(id: :desc), items: 25)
-    @pagy, @microposts = pagy(Micropost.order(id: :desc), item: 25)
   end
 
   def show
     @user = User.find(params[:id])
-    @micropost = User.find(params[:id])
     @pagy, @microposts = pagy(@user.microposts.order(id: :desc))
     counts(@user)
   end
